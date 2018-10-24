@@ -5,3 +5,4 @@ export declare const removeNode: (node: Node) => void;
 export declare const throwErr: (message: string) => never;
 export declare const isPlainObject: (value: any) => boolean;
 export declare const ordinalSuffixOf: (num: number) => string;
+export declare const isTextHTML: (text: string) => boolean;

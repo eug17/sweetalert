@@ -4,7 +4,7 @@ import {
 } from '../markup';
 
 import { injectElIntoModal } from './modal';
-
+import { stringToNode, isTextHTML } from '../utils';
 /*
  * Fixes a weird bug that doesn't wrap long text in modal
  * This is visible in the Safari browser for example.
@@ -27,20 +27,26 @@ export const initTitle = (title: string): void => {
   }
 };
 
-export const initText = (text: string): void => {
+export const initText = (text: string | HTMLElement): void => {
   if (text) {
-    let textNode = document.createDocumentFragment();
-    text.split('\n').forEach((textFragment, index, array) => {
-      textNode.appendChild(document.createTextNode(textFragment));
-
-      // unless we are on the last element, append a <br>
-      if (index < array.length - 1) {
-        textNode.appendChild(document.createElement('br'));
-      }
-    });
     const textEl: HTMLElement = injectElIntoModal(textMarkup);
-    textEl.appendChild(textNode);
+    if (text instanceof HTMLElement) {
+      textEl.appendChild(text);
+    } else if (isTextHTML(text)) {
+      const _el: HTMLElement = stringToNode(text);
+      textEl.appendChild(_el);
+    } else {
+      let textNode = document.createDocumentFragment();
+      text.split('\n').forEach((textFragment, index, array) => {
+        textNode.appendChild(document.createTextNode(textFragment));
 
+        // unless we are on the last element, append a <br>
+        if (index < array.length - 1) {
+          textNode.appendChild(document.createElement('br'));
+        }
+      });
+      textEl.appendChild(textNode);
+    }
     webkitRerender(textEl);
   }
 };

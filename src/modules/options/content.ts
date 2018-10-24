@@ -3,7 +3,7 @@ import {
 } from '../utils';
 
 export interface ContentOptions {
-  element: string|Node,
+  element: string | Node,
   attributes?: object,
 };
 
@@ -14,7 +14,7 @@ const defaultInputOptions: ContentOptions = {
   },
 };
 
-export const getContentOpts = (contentParam: string|object): ContentOptions => {
+export const getContentOpts = (contentParam: string | object): ContentOptions => {
   let opts = <any>{};
 
   if (isPlainObject(contentParam)) {

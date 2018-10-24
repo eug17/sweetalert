@@ -27,7 +27,7 @@ export const removeNode = (node: Node) => {
 
 export const throwErr = (message: string) => {
   // Remove multiple spaces:
-  message = message.replace(/ +(?= )/g,'');
+  message = message.replace(/ +(?= )/g, '');
   message = message.trim();
 
   throw `SweetAlert: ${message}`;
@@ -67,4 +67,8 @@ export const ordinalSuffixOf = (num: number): string => {
 
   return `${num}th`;
 };
+
+export const isTextHTML = (text: string): boolean => {
+  return /^<([a-z]+)[^>]*>[\S\s]*<\/\1>$/.test(text);
+}
 

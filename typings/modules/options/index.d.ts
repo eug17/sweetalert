@@ -2,7 +2,7 @@ import { ButtonList } from './buttons';
 import { ContentOptions } from './content';
 export interface SwalOptions {
     title: string;
-    text: string;
+    text: string | HTMLElement;
     icon: string;
     buttons: ButtonList | Array<string | boolean>;
     content: ContentOptions;

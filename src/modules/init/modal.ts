@@ -50,7 +50,6 @@ export const initModalContent = (opts: SwalOptions): void => {
   // Start from scratch:
   const modal: Element = getNode(MODAL);
   customizeModalElement(modal, opts);
-
   initIcon(opts.icon);
   initTitle(opts.title);
   initText(opts.text);

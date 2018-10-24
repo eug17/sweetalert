@@ -28,7 +28,7 @@ import {
  */
 export interface SwalOptions {
   title: string,
-  text: string,
+  text: string | HTMLElement,
   icon: string,
   buttons: ButtonList | Array<string | boolean>,
   content: ContentOptions,
@@ -67,7 +67,7 @@ export const setDefaults = (opts: object): void => {
  * we need to make sure we pick one of the options
  */
 const pickButtonParam = (opts: any): object => {
-  const singleButton: string|object = opts && opts.button;
+  const singleButton: string | object = opts && opts.button;
   const buttonList: object = opts && opts.buttons;
 
   if (singleButton !== undefined && buttonList !== undefined) {
