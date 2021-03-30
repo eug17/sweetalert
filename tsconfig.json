@@ -2,14 +2,15 @@
   "compilerOptions": {
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "commonjs",
+    "module": "es2015",
     "declaration": true,
     "declarationDir": "typings",
     "target": "es5",
     "outDir": "tmp",
-    "lib": ["es2015", "es2016", "dom"]
+    "lib": ["es2015", "es2017" ,"dom"]
   },
   "include": [
-    "./src/*.ts"
+    "./src/*.ts",
+    "./src/**/*.ts"
   ]
 }

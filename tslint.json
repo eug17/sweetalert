@@ -1,5 +1,15 @@
 {
   "rules": {
-    "no-unused-variable": true
+    "no-unused-variable": true,
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+   ]
   }
 }
